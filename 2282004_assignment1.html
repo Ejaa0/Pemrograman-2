@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment 1 </title>
+</head>
+
+<body>
+    <div id="rhesa">This is my first name</div>
+    <div id="ivander">This is my last name</div>
+    <button id="yourFirstNameButton">Click me</button>
+
+    <p>This is my first name</p>
+    <p>This is my last name</p>
+
+    <p class="sihol">This is a content for the paragraph</p>
+
+    <div id="azaria">
+        <p id="panjaitan">This is a child</p>
+    </div>
+
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required>
+        <br><br>
+        <label for="lastname">Last Name:</label>
+        <input type="lastname" id="lastname" name="lastname" required>
+        <br><br>
+        <input type="submit" value="Submit">
+
+    </form>
+
+    <script>
+        const rhesa = document.getElementById('rhesa');
+        const ivander = document.getElementById('ivander');
+
+        rhesa.innerHTML = "This is a content for my first name";
+        ivander.innerHTML = "This is a new content for last name";
+
+        const pars = document.getElementsByTagName('p');
+        pars[1].innerHTML = "This is a content for a ejaa";
+
+        const sihol = document.querySelector('.sihol');
+        sihol.style.backgroundColor = 'cyan';
+        sihol.style.color = 'red';
+        sihol.addEventListener('click', function () {
+            alert('Hi, Im ejaa')
+        });
+
+        const child = document.getElementById('panjaitan');
+        const parent = child.parentNode;
+        parent.style.backgroundColor = 'green';
+
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === '' || password === '') {
+                window.alert('Harap isi semua kolom sebelum submit!');
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+</body>
+
+</html>
