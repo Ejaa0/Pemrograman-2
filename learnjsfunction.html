@@ -42,8 +42,25 @@
         let resultScope = rhesaScope(20);
         console.log(resultScope);
         console.log(y);
-        console.log(x);
+        //console.log(x);
 
+        function rhesaOuter(i) {
+            let y = i + 2 ;
+            function rhesaInner() {
+                console.log(y)
+            }
+            rhesaInner();
+        }
+
+        rhesaOuter(2);
+
+
+        //Traditional Function
+        function rhesaMultiply(a,b) {
+            return a * b;
+        }
+
+        console.log(rhesaMultiply(9,8));
 
     </script>
 </body>
