@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>javascript function </title>
 </head>
+
 <body>
     <script>
-        function rhesaOnlineGamesMultiply(coc, ragnarok){
+
+        //Multiplication Function
+        function rhesaOnlineGamesMultiply(coc, ragnarok) {
             console.log("Rhesa & " + coc + " & " + ragnarok);
         }
-        rhesaOnlineGamesMultiply("coc","ragnarok");
+        rhesaOnlineGamesMultiply("coc", "ragnarok");
 
 
-        //Arow Funtion:
+        //Division  Funtion:
         let rhesaOnlineDivision = (coc, ragnarok, cod) => coc * ragnarok * cod;
         console.log(rhesaOnlineDivision(9, 4, 10));
 
+        //Anonymous (1)
+        let reverseString = function (str) {
+            return str.split('').reverse().join('');
+        };
+
+        // Anonymous (2)
+        let generateRandomNumber = function (min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        //Function Scopes
+
+        let name = "Sihol"
+        function sayName() {
+            let name = "Azaria";
+            console.log(name);
+        }
+        sayName();
+        console.log(name);
+
+        let bermain = 20;
+        function add(y) {
+            y = y + 45;
+            return y;
+        }
+        let result = add(bermain);
+        console.log(bermain);
+        console.log(result);
 
 
     </script>
 </body>
+
 </html>
