@@ -15,8 +15,12 @@
             major : "Information System",
             sayHello : function(){
                 console.log("Hello! " + this.name )
+            },
+            sayIt : function(word) {
+                console.log("The word is : "+ word)
             }
         }
+        student.sayIt("FTI UNAI is the best!");
         
         console.log(student.name);
         console.log(student.email);
@@ -37,6 +41,11 @@
         let car1 = new Car ("Toyota", "Camry", 2020, "Blue");
         let car2 = new Car ("BMW", "320i", 2023, "Black");
         let car3 = new Car ("Tesla", "Model 3", 2019, "White");
+
+        console.log(car1.model);
+        console.log(car3.make);
+        console.log(car2["year"]);
+        console.log(car2["make"]);
         
         
     </script>
