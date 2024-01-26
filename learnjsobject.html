@@ -14,7 +14,7 @@
             gende : "male",
             major : "Information System",
             sayHello : function(){
-                console.log("Hello!")
+                console.log("Hello! " + this.name )
             }
         }
         
@@ -22,6 +22,21 @@
         console.log(student.email);
 
         student.sayHello();
+
+        student.studentID = "004";
+
+        console.log(student.studentID);
+
+        function Car(make, model , year, color) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+            this.color = color;
+        }
+
+        let car1 = new Car ("Toyota", "Camry", 2020, "Blue");
+        let car2 = new Car ("BMW", "320i", 2023, "Black");
+        let car3 = new Car ("Tesla", "Model 3", 2019, "White");
         
         
     </script>
