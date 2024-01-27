@@ -26,8 +26,13 @@
             },
 
             getAge: function () {
-                console.log(studentPortfolio.birthdate);
+
+                let birthYear = (this.birthdate.split(' ')[2]);
+                let currentYear = new Date().getFullYear();
+                return currentYear - birthYear;
             },
+
+
 
 
             displayPortfolio: function () {
@@ -37,16 +42,29 @@
         };
 
         console.log(studentPortfolio.name);
-        console.log(studentPortfolio.birthdate);
-        console.log(studentPortfolio.getAge);
-
-        studentPortfolio.addSkill('Networking ' + 'Coding ' + 'Analyst');
-        console.log(studentPortfolio.skills);
-
         studentPortfolio.addCourse('Riset Tekonologi Informasi' + 'Pemrograman Bergerak' + 'Riset Teknologi Dan Iformasi');
+        console.log('Age:', studentPortfolio.getAge());
+        console.log(studentPortfolio.birthdate);
         console.log(studentPortfolio.courses);
+        studentPortfolio.displayPortfolio();
 
-        console.log(studentPortfolio.displayPortfolio);
+
+
+        let skill = {
+            skills: [],
+            addSkills: function (item) {
+                this.skills.push(item);
+
+            },
+            showSkills: function () {
+                console.log(this.skills);
+            },
+        }
+
+        skill.showSkills();
+        skill.addSkills("Matematika dan Probabilitas")
+
+
 
     </script>
 </body>
