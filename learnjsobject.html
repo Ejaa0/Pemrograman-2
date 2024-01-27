@@ -47,7 +47,28 @@
         console.log(car2["year"]);
         console.log(car2["make"]);
         
+        let food = {
+            fruits: [],
+            addFruits : function(item) {
+                this.fruits.push(item);
+            },
+            showFruits: function() {
+                console.log(this.fruits);
+            },
+        }
         
+        food.showFruits();
+        food.addFruits("Banana");
+        food.showFruits();
+        food.addFruits("Apple");
+        food.showFruits();
+        food.addFruits("Kiwi");
+        food.showFruits();
+        food.addFruits("Mango")
+        food.showFruits();
+        food.addFruits("Avocado");
+        food.showFruits();
+
     </script>
 </body>
 </html>

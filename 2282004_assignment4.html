@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignmet 4</title>
+</head>
+
+<body>
+    <script>
+
+        let studentPortfolio = {
+            name: "Rhesa Ivander Sihol Azaria Panjaitan",
+            studentID: "2282004",
+            birthdate: "30 October 2003",
+            courses: ["Pemrograman Web 2", "Rekayasa Perangkat Lunak", "Statistik dan Probabilitas"],
+            skills: [],
+
+            addCourse: function (courseName) {
+                this.courses.push(courseName);
+            },
+
+            addSkill: function (addSkill) {
+                this.skills.push(skills)
+            },
+
+            getAge: function () {
+                console.log(studentPortfolio.birthdate);
+            },
+
+
+            displayPortfolio: function () {
+                console.log(studentPortfolio.name + ', ' + studentPortfolio.studentID + ', ' + studentPortfolio.birthdate + ', ' + studentPortfolio.courses + ', ' + studentPortfolio.skills);
+
+            }
+        };
+
+        console.log(studentPortfolio.name);
+        console.log(studentPortfolio.birthdate);
+        console.log(studentPortfolio.getAge);
+
+        studentPortfolio.addSkill('Networking ' + 'Coding ' + 'Analyst');
+        console.log(studentPortfolio.skills);
+
+        studentPortfolio.addCourse('Riset Tekonologi Informasi' + 'Pemrograman Bergerak' + 'Riset Teknologi Dan Iformasi');
+        console.log(studentPortfolio.courses);
+
+        console.log(studentPortfolio.displayPortfolio);
+
+    </script>
+</body>
+
+</html>
