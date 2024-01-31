@@ -1,0 +1,72 @@
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>assignmet 4</title>
+        </head>
+
+        <body>
+            <script>
+
+                let studentPortfolio = {
+                    name: "Shann Matthew Santo Nainggolan",
+                    studentID: "2282024",
+                    birthdate: "22 Juni 2004",
+                    courses: ["Pemrograman Web 2", "Daniel Wahyu", "Statistik dan Probabilitas"],
+                    skills: [],
+
+                    addCourse: function (courseName) {
+                        this.courses.push(courseName);
+                    },
+
+                    addSkill: function (addSkill) {
+                        this.skills.push(skills)
+                    },
+
+                    getAge: function () {
+
+                        let birthYear = (this.birthdate.split(' ')[2]);
+                        let currentYear = new Date().getFullYear();
+                        return currentYear - birthYear;
+                    },
+
+
+
+
+                    displayPortfolio: function () {
+                        console.log(studentPortfolio.name + ', ' + studentPortfolio.studentID + ', ' + studentPortfolio.birthdate + ', ' + studentPortfolio.courses + ', ' + studentPortfolio.skills);
+
+                    }
+                };
+
+                console.log(studentPortfolio.name);
+                studentPortfolio.addCourse('Animasi Komputer' + 'Pemrograman Bergerak' + 'Riset Teknologi Dan Iformasi');
+                console.log('Age:', studentPortfolio.getAge());
+                console.log(studentPortfolio.birthdate);
+                console.log(studentPortfolio.courses);
+                studentPortfolio.displayPortfolio();
+
+
+
+                let skill = {
+                    skills: [],
+                    addSkills: function (item) {
+                        this.skills.push(item);
+
+                    },
+                    showSkills: function () {
+                        console.log(this.skills);
+                    },
+                }
+
+                skill.showSkills();
+                skill.addSkills("Matematika dan Probabilitas")
+
+
+
+            </script>
+        </body>
+
+        </html>
