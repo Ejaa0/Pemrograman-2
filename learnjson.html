@@ -14,6 +14,29 @@
             console.log(data.productName);
             console.log(data.price)
         })
+
+        fetch('products.json')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            //Display the first item on the array
+            console.log(data.products[0].name);
+            console.log(data.products[0].price);
+
+            //Display the second item
+            console.log(data.products[1].name);
+            console.log(data.products[1].price);
+
+            //We can use looping to display all the data
+            for(let i=0; i<data.products.length; i++) {
+                console.log(data.products[i].name);
+                console.log(data.products[i].price);
+            }
+        })
+
+
+
+
     </script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+{
+    "products" : [
+        {
+            "name" : "iPhone 20",
+            "price": 300
+        },
+        {
+            "name" : "samsung 80",
+            "price" : 700
+        },
+
+        {
+            "name": "xiaomi 99 Pro",
+            "price": 200
+
+        }       
+
+    ]
+}

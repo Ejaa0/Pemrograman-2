@@ -1,0 +1,71 @@
+{
+    "classmates": [
+        {
+            "name" : "Siti Nuraini Tambunan",
+            "id" : 2282036,
+            "grade": "A",
+            "age" : 20,
+            "favoriteSubject" : "Computer Animation",
+            "reasonForInterest" : "Because she like Animation",
+            "favoriteTopic": "Stopmotion",
+            "hobbies" : "cooking",
+            "yearsInvolved" : "2014",
+            "skillLevel" : "medium",
+            "personalGoals" : "System Analyst"
+            
+        },
+        {
+            "name" : "Nathan Lim",
+            "id" : 2282012,
+            "grade": "A",
+            "age" : 19,
+            "favoriteSubject" : "Web 2",
+            "reasonForInterest" : "Because he want's to become a frontend developer",
+            "favoriteTopic": "TailwindCSS",
+            "hobbies" : "Playing Online Games",
+            "yearsInvolved" : "2012",
+            "skillLevel" : "medium",
+            "personalGoals" : "Game Developer"
+        },
+        {
+            "name" : "Yehezkiel Sitompul",
+            "id" : 2282028,
+            "grade": "A",
+            "age" : 20,
+            "favoriteSubject" : "Daniel & Wahyu",
+            "reasonForInterest" : "Because he like's to hear a god's word",
+            "favoriteTopic": "Daniel 7",
+            "hobbies" : "singing",
+            "yearsInvolved" : "2017",
+            "skillLevel" : "pro",
+            "personalGoals" : "backend developer"
+        },
+        {
+            "name" : "Shann Matthew Santo Nainggolan",
+            "id" : 2282024,
+            "grade": "A",
+            "age" : 19,
+            "favoriteSubject" : "RPL ( Rekayasa Perangkat Lunak )",
+            "reasonForInterest" : "Because he's interest about software",
+            "favoriteTopic": "how to make a good software",
+            "hobbies" : "Playing Online Games",
+            "yearsInvolved" : "2014",
+            "skillLevel" : "average",
+            "personalGoals" : "Software Developer"
+        },
+        {
+            "name" : "Dian Martogi Hutabalian",
+            "id" : 2282002,
+            "grade": "A",
+            "age" : 20,
+            "favoriteSubject" : "Statistik dan Probabilitas",
+            "reasonForInterest" : "Because he like's Math",
+            "favoriteTopic": "Statistic",
+            "hobbies" : "coding",
+            "yearsInvolved" : "2018",
+            "skillLevel" : "medium",
+            "personalGoals" : "AI Enginering"
+        }
+
+    ]
+}
