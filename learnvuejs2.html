@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn vueJS part 2</title>
+</head>
+<style>
+    .red {
+        color: red;
+    }
+</style>
+
+<body>
+    <div id="app">
+        {{ message }}
+        <br>
+        Name:{{name}}
+        <br>
+        Age:{{age}}
+        <br>
+        Products: (displayed using v-for)
+        <ul>
+            <li v-for="product in products">
+                {{product}}
+            </li>
+        </ul>
+        <br>
+        Items:
+        <ul>
+            <li v-for="item in items">
+                {{item.name}},Price:{{item.price}}
+            </li>
+        </ul>
+
+        <br>
+        <button v-on:click="count++">Add 1</button>
+        <button v-on:click="count--">Minus 1</button>
+        <p>Count: {{ count }}</p>
+
+        <h3 v-bind:class="textColor" v-if="count >10">This title will appear if the count valui is more than ten</h3>
+        <button v-on:click="doAlert">Do Alert</button>
+        <button v-on:click="writeToconsole">Write to console</button>
+        <button v-on:click="sitiCantik">Siti cantik</button>
+
+        <br>
+        <h3>Chat Application</h3>
+        <ul>
+            <li v-for="message in messages">
+                {{message}}
+            </li>
+        </ul>
+        <input v-model="newMessage"  type="text">
+        <button v-on:click="sendMessage">Send</button>
+    
+    </div>
+        
+
+
+        </li>
+        </ul>
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    newMessage:'',
+                    messages:[],
+                    textColor: 'red',
+                    count: 0,
+                    message: 'Hello Vue!',
+                    name: 'Rhesa ',
+                    age: '20',
+                    products: ["Macbook Pro", "Mackbook Air", "Ipad Pro"],
+                    items: [
+                        { name: 'iPhone 17', price: 77 },
+                        { name: 'Samsung 27', price: 100 },
+                        { name: 'Xiomi 77 pro', price: 200 }
+
+                    ]
+                }
+                
+            },
+            methods: {
+                doAlert() {
+                    alert('Hi from Vue')
+                },
+                writeConsole() {
+                    console.log('This is written from vueJS method')
+                },
+                sitiCantik() {
+                    console.log('Hi siti cantik')
+                },
+                sendMessage() {
+                    this.messages.push(this.newMessage)
+                    this.newMassage = ''
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

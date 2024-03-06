@@ -3,11 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Learn Vuejs</title>
+    <title>Learn VueJS</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
 </head>
 <body>
+    <div id="app">{{ message }} from {{ name }}. My age is {{ age }}.
+        <br>
+        Hobbies: {{ hobbies }}
+        <br>
+        Address: {{ address }}
 
+        <br><br>
+        Text message: <input type="text" v-model="textMessage">
+        <h3>{{ textMessage }} </h3>
+
+        Name: <input type="text" v-model="name">
+        
+        <h2 v-if="on">This text will appear if the value of on is true</h2>
+        <h2 v-else>This text will appear if the value of on is false</h2>
+
+        <br>
+        <hr>
+        Age: <input type="text" v-model="age">
+        <h3 v-if="age <= 17">You're still young</h3>
+        <h3 v-else>You're old</h3>
+
+        <br>
+        <hr>
+        <h2 v-bind:class="textColor">This is a title</h2>        
+
+        Hobbies: 
+        <li v-for="hobby in hobbies">
+            {{ hobby }}
+        </li>
+
+        Address: {{ address.street }}
+
+    </div>
     
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    textColor: 'red',
+                    on: false,
+                    textMessage: '',
+                    message: 'Hello Vue!',
+                    // Add three more properties and display them!
+                    name: 'Rhesa',
+                    age: 20,
+                    gender: 'Male',
+                    // Add a property using array data types 
+                    // add a minimum of 3 elements (items)
+                    hobbies: ['singing', 'sleeping', 'cooking'],
+
+                    // Add a property with object data type
+                    // with a minimum of 3 properties
+                    address: {
+                        street: 'Jl. Kolonel Masturi No. 288, Parongpong', 
+                        regency: 'Bandung Barat', 
+                        province: 'West Java'
+                    }
+
+                    
+                }
+            }
+        }).mount('#app')
+    </script>
 </body>
 </html>
