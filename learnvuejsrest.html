@@ -11,6 +11,31 @@
 </head>
 
 <body class="bg-gray-100">
+    <nav class="flex justify-between items-center bg-blue-500 p-6">
+        <a href="#" class="flex items-center">
+            <img src="https://via.placeholder.com/50" alt="Logo" class="w-10 h-10 mr-2">
+            <span class="text-white text-lg font-bold">Navigation</span>
+        </a>
+        <div class="flex items-center justify-center flex-grow">
+            <a href="#" class="text-white text-center hover:text-gray-200 mx-4">User</a>
+            <a href="#" class="text-white text-center hover:text-gray-200 mx-4">Biodata</a>
+            <a href="#" class="text-white text-center hover:text-gray-200 mx-4">Products</a>
+            <a href="#" class="text-white text-center hover:text-gray-200 mx-4">Services</a>
+            <a href="#" class="text-white text-center hover:text-gray-200 mx-4">Data Storage</a>
+        </div>
+        <div>
+            <!-- Tambahan -->
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="container mx-auto py-8">
+        <table class="w-full">
+            <!-- Table content goes here -->
+        </table>
+        <!-- Form content goes here -->
+    </div>
+</div>
+
     <div id="app" class="container mx-auto py-8">
         <table class="w-full">
             <thead>
@@ -134,7 +159,7 @@
                     if (confirm("Are you sure you want to delete this user?")) {
                         axios
                             .delete(
-                                `https://65e715a053d564627a8ddd0a.mockapi.io/users/${user.id}`
+                                `https://65e715a053d564627a8ddd0a.mockapi.io/users/${user.id}`,
                             )
                             .then((res) => {
                                 alert("User has been deleted");
