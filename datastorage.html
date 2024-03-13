@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Storage</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <nav class="bg-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img class="h-8 mr-2" src="Bmw de vetor de carro _ Vetor Premium.jpeg" alt="Logo">
+                    <span class="text-lg font-bold text-gray-800">ReyCarrent</span>
+                </div>
+                <!-- Menu -->
+                <div class="hidden md:flex">
+                    <a href="user.html"
+                        class="text-gray-800 hover:text-gray-600 px-4 py-2 flex items-center transition duration-300">
+                        <svg class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                        User
+                    </a>
+                    <a href="index.html"
+                        class="text-gray-800 hover:text-gray-600 px-4 py-2 flex items-center transition duration-300">
+                        <svg class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 4h4a1 1 0 011 1v14a1 1 0 01-1 1h-4a1 1 0 01-1-1V5a1 1 0 011-1z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Home
+                    </a>
+                    <a href="order.html"
+                        class="text-gray-800 hover:text-gray-600 px-4 py-2 flex items-center transition duration-300">
+                        <svg class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        Order
+                    </a>
+                    <a href="services.html"
+                        class="text-gray-800 hover:text-gray-600 px-4 py-2 flex items-center transition duration-300">
+                        <svg class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 4h4a1 1 0 011 1v14a1 1 0 01-1 1h-4a1 1 0 01-1-1V5a1 1 0 011-1z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Services
+                    </a>
+
+                    <a href="product.html"
+                        class="text-gray-800 hover:text-gray-600 px-4 py-2 flex items-center transition duration-300">
+                        <svg class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 4h4a1 1 0 011 1v14a1 1 0 01-1 1h-4a1 1 0 01-1-1V5a1 1 0 011-1z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Product
+                    </a>
+
+                    <a href="datastorage.html"
+                        class="text-gray-800 hover:text-gray-600 px-4 py-2 flex items-center transition duration-300">
+                        <svg class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        Datastorage
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button"
+                        class="text-gray-800 hover:text-gray-600 focus:outline-none focus:text-gray-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#" class="block text-center py-2 bg-gray-200 hover:bg-gray-300">User</a>
+            <a href="#" class="block text-center py-2 bg-gray-200 hover:bg-gray-300">Biodata</a>
+            <a href="#" class="block text-center py-2 bg-gray-200 hover:bg-gray-300">Product</a>
+            <a href="#" class="block text-center py-2 bg-gray-200 hover:bg-gray-300">Service</a>
+            <a href="#" class="block text-center py-2 bg-gray-200 hover:bg-gray-300">Data Storage</a>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="container mx-auto py-8">
+        <table class="w-full">
+            <!-- Table content goes here -->
+        </table>
+        <!-- Form content goes here -->
+    </div>
+    </div>
+
+    <div id="app" class="container mx-auto py-8">
+        <table class="w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">ID</th>
+                    <th class="px-4 py-2">Firstname</th>
+                    <th class="px-4 py-2">Lastname</th>
+                    <th class="px-4 py-2">Password</th>
+                    <th class="px-4 py-2">Number Handphone</th>
+                    <th class="px-4 py-2">Address</th>
+                    <th class="px-4 py-2">Car Type</th>
+                    <th class="px-4 py-2">Order Date</th>
+                    <th class="px-4 py-2">Return Date</th>
+                    <th class="px-4 py-2">Payment</th>
+                    <th class="px-4 py-2">Avatar</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="data in datas" :key="data.id">
+                    <td class="border px-4 py-2">{{data.id}}</td>
+                    <td class="border px-4 py-2">{{data.firstname}}</td>
+                    <td class="border px-4 py-2">{{data.lastname}}</td>
+                    <td class="border px-4 py-2">{{data.password}}</td>
+                    <td class="border px-4 py-2">{{data.numberhandphone}}</td>
+                    <td class="border px-4 py-2">{{data.address}}</td>
+                    <td class="border px-4 py-2">{{data.cartype}}</td>
+                    <td class="border px-4 py-2">{{data.orderdate}}</td>
+                    <td class="border px-4 py-2">{{data.returndate}}</td>
+                    <td class="border px-4 py-2">{{data.payment}}</td>
+                    <td class="border px-4 py-2"><img v-bind:src="data.avatar" class="w-10 h-10 rounded-full"></td>
+                    <td class="border px-4 py-2">
+
+                        <button @click="getEditData(data)"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+                        <button @click="deleteData(data)"
+                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button @click="getDatas"
+            class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Get Users</button>
+
+        <br><br>
+
+        <form @submit.prevent="">
+            <h3 class="text-lg font-bold mb-4">Form User</h3>
+            <label class="block mb-2">Firstname:</label>
+            <input type="text" v-model="data.firstname" class="border rounded-md px-2 py-1 mb-2"><br>
+            <label class="block mb-2">Lastname:</label><input type="text" v-model="data.lastname"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+            <label class="block mb-2">Password:</label><input type="password" v-model="data.password"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+                <label class="block mb-2">Number Handphone:</label><input type="text" v-model="data.numberhandphone"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+            <label class="block mb-2">Address:</label><input type="text" v-model="data.address"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+                <label class="block mb-2">Car Type:</label><input type="text" v-model="data.cartype"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+                <label class="block mb-2">Order Date:</label><input type="text" v-model="data.orderdate"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+                <label class="block mb-2">Return Date:</label><input type="text" v-model="data.returndate"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+                <label class="block mb-2">Payment:</label><input type="text" v-model="data.payment"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+
+            <button v-if="!isEdit" @click="addData"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Data</button>
+            <button v-if="isEdit" @click="updateData"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Update Data</button>
+        </form>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    datas: [],
+                    data: {
+                        firstname: '',
+                        lastname: '',
+                        password: '',
+                        numberhandphone:'',
+                        address:'',
+                        cartype:'',
+                        orderdate: '',
+                        returndate: '',
+                        payment:'',
+                        avatar: ''
+
+                    },
+                    isEdit: false,
+                    dataIdSelected: null
+                }
+            },
+            methods: {
+                getDatas() {
+                    axios
+                        .get('https://65e7200053d564627a8e0030.mockapi.io/datastorage')
+                        .then((response) => {
+                            this.datas = response.data
+                        })
+                },
+                addData() {
+                    axios
+                        .post('https://65e7200053d564627a8e0030.mockapi.io/datastorage', {
+                            firstname: this.data.firstname,
+                            lastname: this.data.lastname,
+                            password: this.data.password,
+                            numberhandphone: this.data.numberhandphone,
+                            address: this.data.address,
+                            cartype: this.data.cartype,
+                            orderdate:this.data.orderdate,
+                            returndate: this.data.returndate,
+                            payment: this.data.payment,
+                            avatar: this.data.avatar,
+                        })
+                        .then((response) => {
+                            this.getDatas();
+                            alert("New user has been saved");
+                            console.log(response);
+                            this.resetForm();
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+
+                },
+                getEditData(data) {
+                    this.isEdit = true
+                    this.dataIdSelected = data.id
+                    this.data.firstname = data.firstname
+                    this.data.lastname = data.lastname
+                    this.data.password = data.password
+                    this.data.numberhandphone = data.numberhandphone
+                    this.data.address = data.address
+                    this.data.cartype = data.cartype
+                    this.data.orderdate = data.orderdate
+                    this.data.returndate = data.returndate
+                    this.data.payment = data.payment
+                    this.data.avatar = data.avatar
+                },
+                updateData() {
+                    axios
+                        .put(
+                            `https://65e7200053d564627a8e0030.mockapi.io/datastorage/${this.dataIdSelected}`,
+                            {
+                                firstname: this.data.firstname,
+                                lastname: this.data.lastname,
+                                password: this.data.password,
+                                numberhandphone:this.data.numberhandphone,
+                                address:this.data.address,
+                                cartype:this.data.cartype,
+                                orderdate:this.data.orderdate,
+                                returndate:this.data.returndate,
+                                payment:this.data.payment,
+                                avatar: this.data.avatar,
+                            }
+                        )
+                        .then((response) => {
+                            this.getDatas();
+                            alert("User has been updated");
+                            console.log(response);
+                            this.isEdit = false;
+                            this.resetForm();
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                },
+                deleteData(data) {
+                    if (confirm("Are you sure you want to delete this user?")) {
+                        axios
+                            .delete(
+                                `https://65e7200053d564627a8e0030.mockapi.io/datastorage/${data.id}`,
+                            )
+                            .then((res) => {
+                                alert("Data has been deleted");
+                                this.getDatas();
+                                this.resetForm();
+                            })
+                            .catch((err) => {
+                                console.log(err)
+                            });
+                    }
+                },
+                resetForm() {
+                    this.data.firstname = ''
+                    this.data.lastname = ''
+                    this.data.password = ''
+                    this.data.numberhandphone=''
+                    this.data.address=''
+                    this.data.cartype=''
+                    this.data.orderdate=''
+                    this.data.returndate=''
+                    this.data.payment=''
+                    this.data.avatar = ''
+                }
+            }
+        }).mount('#app')
+
+    </script>
+
+    <footer class="bg-gray-100 text-black py-12">
+        <div class="container mx-auto flex flex-wrap justify-between">
+            <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                <h2 class="text-2xl font-semibold">ReyCarrent</h2>
+                <p class="mt-4">UNAI Street<br>Bandung</p>
+            </div>
+            <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                <h2 class="text-2xl font-semibold">Useful Links</h2>
+                <ul class="mt-4">
+                    <li><a href="user.html" class="hover:text-gray-400">User</a></li>
+                    <li><a href="index.html" class="hover:text-gray-400">Home</a></li>
+                    <li><a href="order.html" class="hover:text-gray-400">Order</a></li>
+                    <li><a href="services.html" class="hover:text-gray-400">Services</a></li>
+                    <li><a href="datastorage.html" class="hover:text-gray-400">Data Storage</a></li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/3">
+                <h2 class="text-2xl font-semibold">Contact Us</h2>
+                <p class="mt-4">Email: reycarrent@gmail.com<br>Phone: 087779337289</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
+    <title>Order</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -114,48 +114,64 @@
             <thead>
                 <tr>
                     <th class="px-4 py-2">ID</th>
-                    <th class="px-4 py-2">Username</th>
-                    <th class="px-4 py-2">Email</th>
-                    <th class="px-4 py-2">Password:</th>
+                    <th class="px-4 py-2">Firstname</th>
+                    <th class="px-4 py-2">Lastname</th>
+                    <th class="px-4 py-2">Number Handphone</th>
+                    <th class="px-4 py-2">Address</th>
+                    <th class="px-4 py-2">Car Type</th>
+                    <th class="px-4 py-2">Order Date</th>
+                    <th class="px-4 py-2">Return Date</th>
                     <th class="px-4 py-2">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in users" :key="user.id">
-                    <td class="border px-4 py-2">{{user.id}}</td>
-                    <td class="border px-4 py-2">{{user.username}}</td>
-                    <td class="border px-4 py-2">{{user.email}}</td>
-                    <td class="border px-4 py-2">{{user.password}}</td>
+                <tr v-for="biodata in biodatas" :key="biodata.id">
+                    <td class="border px-4 py-2">{{biodata.id}}</td>
+                    <td class="border px-4 py-2">{{biodata.firstname}}</td>
+                    <td class="border px-4 py-2">{{biodata.lastname}}</td>
+                    <td class="border px-4 py-2">{{biodata.numberhandphone}}</td>
+                    <td class="border px-4 py-2">{{biodata.address}}</td>
+                    <td class="border px-4 py-2">{{biodata.cartype}}</td>
+                    <td class="border px-4 py-2">{{biodata.orderdate}}</td>
+                    <td class="border px-4 py-2">{{biodata.returndate}}</td>
 
 
                     <td class="border px-4 py-2">
 
-                        <button @click="getEditUser(user)"
+                        <button @click="getEditBiodata(biodata)"
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
-                        <button @click="deleteUser(user)"
+                        <button @click="deleteBiodata(biodata)"
                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <button @click="getUsers"
-            class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Get Users</button>
+        <button @click="getBiodatas"
+            class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Get Datas</button>
 
         <br><br>
 
         <form @submit.prevent="">
-            <h3 class="text-lg font-bold mb-4">Form Users</h3>
-            <label class="block mb-2">Username:</label>
-            <input type="text" v-model="user.username" class="border rounded-md px-2 py-1 mb-2"><br>
-            <label class="block mb-2">Email:</label><input type="text" v-model="user.email"
+            <h3 class="text-lg font-bold mb-4">Form Biodata</h3>
+            <label class="block mb-2">Firstname:</label>
+            <input type="text" v-model="biodata.firstname" class="border rounded-md px-2 py-1 mb-2"><br>
+            <label class="block mb-2">Lastname:</label><input type="text" v-model="biodata.lastname"
                 class="border rounded-md px-2 py-1 mb-2"><br>
-            <label class="block mb-2">Password:</label><input type="text" v-model="user.password"
+            <label class="block mb-2">Number Handphone:</label><input type="number" v-model="biodata.numberhandphone"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+            <label class="block mb-2">Address:</label><input type="text" v-model="biodata.address"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+            <label class="block mb-2">Car Type:</label><input type="text" v-model="biodata.cartype"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+            <label class="block mb-2">Order Date:</label><input type="text" v-model="biodata.orderdate"
+                class="border rounded-md px-2 py-1 mb-2"><br>
+            <label class="block mb-2">Return Date:</label><input type="text" v-model="biodata.returndate"
                 class="border rounded-md px-2 py-1 mb-2"><br>
 
-            <button v-if="!isEdit" @click="addUser"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add user</button>
-            <button v-if="isEdit" @click="updateUser"
-                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Update User</button>
+            <button v-if="!isEdit" @click="addBiodata"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Form</button>
+            <button v-if="isEdit" @click="updateBiodata"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Update Form</button>
         </form>
     </div>
 
@@ -165,36 +181,44 @@
         createApp({
             data() {
                 return {
-                    users: [],
-                    user: {
-                        username: '',
-                        email: '',
-                        password: '',
+                    biodatas: [],
+                    biodata: {
+                    firstname: '',
+                    lastname: '',
+                    numberhandphone: '',
+                    address: '',
+                    cartype: '',
+                    orderdate: '',
+                    returndate: '',
 
 
                     },
                     isEdit: false,
-                    userIdSelected: null
+                    biodataIdSelected: null
                 }
             },
             methods: {
-                getUsers() {
+                getBiodatas() {
                     axios
-                        .get('https://65e715a053d564627a8ddd0a.mockapi.io/users')
+                        .get('https://65e715a053d564627a8ddd0a.mockapi.io/biodata')
                         .then((response) => {
-                            this.users = response.data
+                            this.biodatas = response.data
                         })
                 },
-                addUser() {
+                addBiodata() {
                     axios
-                        .post('https://65e715a053d564627a8ddd0a.mockapi.io/users', {
-                            username: this.user.username,
-                            email: this.user.email,
-                            password: this.user.password,
+                        .post('https://65e715a053d564627a8ddd0a.mockapi.io/biodata', {
+                            firstname: this.biodata.firstname,
+                            lastname: this.biodata.lastname,
+                            numberhandphone: this.biodata.numberhandphone,
+                            address: this.biodata.address,
+                            cartype: this.biodata.cartype,
+                            orderdate: this.biodata.orderdate,
+                            returndate: this.biodata.returndate,
 
                         })
                         .then((response) => {
-                            this.getUsers();
+                            this.getBiodatas();
                             alert("New user has been saved");
                             console.log(response);
                             this.resetForm();
@@ -204,24 +228,34 @@
                         });
 
                 },
-                getEditUser(user) {
-                    this.user.username = user.username
-                    this.user.email = user.email
-                    this.user.password = user.password
+                getEditBiodata(biodata) {
+                    this.isEdit = true
+                    this.biodataIdSelected = biodata.id
+                    this.biodata.firstname = biodata.firstname
+                    this.biodata.lastname = biodata.lastname
+                    this.biodata.numberhandphone = biodata.numberhandphone
+                    this.biodata.address = biodata.address
+                    this.biodata.cartype = biodata.cartype
+                    this.biodata.orderdate = biodata.orderdate
+                    this.biodata.returndate = biodata.returndate
                 },
-                updateUser() {
+                updateBiodata() {
                     axios
                         .put(
-                            `https://65e715a053d564627a8ddd0a.mockapi.io/users/${this.userIdSelected}`,
+                            `https://65e715a053d564627a8ddd0a.mockapi.io/biodata/${this.biodataIdSelected}`,
                             {
-                                username: this.user.username,
-                                email: this.user.email,
-                                password: this.user.password,
+                                firstname: this.biodata.firstname,
+                                lastname: this.biodata.lastname,
+                                numberhandphone: this.biodata.numberhandphone,
+                                address: this.biodata.address,
+                                cartype: this.biodata.cartype,
+                                orderdate: this.biodata.orderdate,
+                                returndate: this.biodata.returndate,
 
                             }
                         )
                         .then((response) => {
-                            this.getUsers();
+                            this.getBiodatas();
                             alert("User has been updated");
                             console.log(response);
                             this.isEdit = false;
@@ -231,15 +265,15 @@
                             console.log(error);
                         });
                 },
-                deleteUser(user) {
+                deleteBiodata(biodata) {
                     if (confirm("Are you sure you want to delete this user?")) {
                         axios
                             .delete(
-                                `https://65e715a053d564627a8ddd0a.mockapi.io/users/${user.id}`,
+                                `https://65e715a053d564627a8ddd0a.mockapi.io/biodata/${biodata.id}`,
                             )
                             .then((res) => {
-                                alert("User has been deleted");
-                                this.getUsers();
+                                alert("Order has been deleted");
+                                this.getBiodatas();
                                 this.resetForm();
                             })
                             .catch((err) => {
@@ -248,9 +282,13 @@
                     }
                 },
                 resetForm() {
-                    this.user.username = ''
-                    this.user.email = ''
-                    this.user.password = ''
+                    this.biodata.firstname = ''
+                    this.biodata.lastname = ''
+                    this.biodata.numberhandphone = ''
+                    this.biodata.address = ''
+                    this.biodata.cartype = ''
+                    this.biodata.orderdate = ''
+                    this.biodata.returndate = ''
 
                 }
             }
@@ -280,7 +318,6 @@
             </div>
         </div>
     </footer>
-
 
 </body>
 
